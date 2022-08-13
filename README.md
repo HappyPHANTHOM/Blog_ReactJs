@@ -3,6 +3,8 @@
 ```
 ReacJS | Node.js | JavaScript | Redux | HTML | CSS
 ```
+## Aplicacion deployada con Vercel
+http://localhost:3000/users/1
 ## Installation
 
 Use the package manager [NPM](https://pip.pypa.io/en/stable/) to install BlogReactJS.
