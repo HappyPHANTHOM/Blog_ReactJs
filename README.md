@@ -3,7 +3,7 @@
 ```
 ReacJS | Node.js | JavaScript | Redux | HTML | CSS
 ```
-## Aplicacion deployada con Vercel
+## Aplication deploy with Vercel
 http://localhost:3000/users/1
 ## Installation
 
