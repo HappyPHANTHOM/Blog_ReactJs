@@ -16,7 +16,7 @@ npm install
 ## Drescription
 
 ```python
-Pequeño blog mostrando a los usuarios, los datos y sus posts.
+Small blog showing users, data and their posts
 
-Usando api externa https://jsonplaceholder.typicode.com/.
+Using external api https://jsonplaceholder.typicode.com/
 ```
