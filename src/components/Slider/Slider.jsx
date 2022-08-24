@@ -1,20 +1,24 @@
 import React from "react";
 import {useParams, Link} from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getPosts } from '../../actions/indexActions';
 import { useEffect, useState } from 'react';
 import styles from './detail.module.css';
+import axios from "axios";
 
 export default function SliderBlog(){
 
-    const dispatch = useDispatch();
     const { id } = useParams();
+    const [posts, setPost] = useState();
 
-    useEffect(()=> {
-        dispatch(getPosts(id));
-    }, [])
-
-    const posts = useSelector((state) => state.posts)
+    useEffect(() => {
+        const post = async () => {
+            var json = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}/posts`);
+            console.log(json);
+            if(json){
+                setPost(json.data)
+            }
+          };
+          post();
+    },[])
 
     return (
         <div>

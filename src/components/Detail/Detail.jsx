@@ -2,21 +2,30 @@ import React from 'react';
 import { Link, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { getDetail } from 'actions/indexActions';
-import { getDetail } from '../../actions/indexActions';
-import { useEffect } from 'react';
+// import { getDetail } from '../../actions/indexActions';
+import { useEffect, useState } from 'react';
 import styles from './detail.module.css';
+import axios from 'axios';
 
 export default function Detail(){
 
-    const dispatch = useDispatch();
-    const { id } = useParams();
 
-    useEffect(()=> {
-        dispatch(getDetail(id));
-    }, [])
+    const { id } = useParams();
+    const[details, setDetails] = useState();
+
+    useEffect(() => {
+        const detail = async () => {
+            var json = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+            //console.log(json);
+            if(json){
+                setDetails(json.data)
+            }
+          };
+          detail();
+    },[])
     
-    const user = useSelector((state) => state.detail)
-    // console.log(user.name)
+   
+    console.log(details)
     return (
         <div>
             <Link to='/home'>
@@ -24,30 +33,30 @@ export default function Detail(){
             </Link>
             <div>
                 {
-                    user.name ?
+                    details?
                     <div className={styles.pri}>
                         <div className={styles.card}>
                             <div className={styles.cardInner}>
                                 <div className={`${styles.cardFace} ${styles.cardFront}`}>
                                         <div className={styles.encabezado}>
-                                            <h2>{user.username}</h2>
+                                            <h2>{details.username}</h2>
                                     
                                             <div className={styles.content}>
                                             <div>
                                                 <h3>Name:</h3>
-                                                <h4>{user.name}</h4>
+                                                <h4>{details.name}</h4>
                                             </div>
                                             <div>
                                                 <h3>Email:</h3>
-                                                <h4>{user.email}</h4>
+                                                <h4>{details.email}</h4>
                                             </div>
                                             <div>
                                                 <h3>City:</h3>
-                                                <h4>{user.address.city}</h4>
+                                                <h4>{details.address.city}</h4>
                                             </div>
                                             <div>
                                                 <h3>Website:</h3>
-                                                <h4>{user.website}</h4>
+                                                <h4>{details.website}</h4>
                                             </div>
                                             </div>
                                         </div>

@@ -1,27 +1,31 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import { getUsers } from '../../actions/indexActions';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import styles from "./home.module.css";
-// import SearchBar from '../SearchBar/SearchBar';
+// import Navbar from '../NavBar/Navbar';
+import axios from 'axios';
 
 export default function Home(){
 
-    const dispatch = useDispatch()
-    const allUsers = useSelector( state => state.users)
+    const [usersData, setUsersData] = useState();
 
     useEffect(() => {
-        dispatch(getUsers())
-    },[dispatch])
-
+      const users = async () => {
+        var json = await axios.get('https://jsonplaceholder.typicode.com/users')
+        if(json){
+            setUsersData(json.data)
+        }
+      };
+      users();
+    },[])
+    
     return (
         <>
-        {/* <SearchBar/> */}
+        {/* <Navbar/> */}
         <div  className={styles.conteiner1}>
             {
-                allUsers?.map((e) => {
+                usersData?.map((e) => {
                     return (
                         <Link to={`/users/${e.id}`}>
                         <div>
