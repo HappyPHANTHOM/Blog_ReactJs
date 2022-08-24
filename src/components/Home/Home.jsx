@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import styles from "../css/home.module.css";
-// import Navbar from '../NavBar/Navbar';
+import Navbar from '../NavBar/Navbar';
 import axios from 'axios';
 
 export default function Home(){
@@ -22,7 +22,7 @@ export default function Home(){
     
     return (
         <>
-        {/* <Navbar/> */}
+         <Navbar/> 
         <div  className={styles.conteiner1}>
             {
                 usersData?.map((e) => {
