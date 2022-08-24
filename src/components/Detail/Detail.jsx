@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link, useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getDetail } from 'actions/indexActions';
-// import { getDetail } from '../../actions/indexActions';
 import { useEffect, useState } from 'react';
-import styles from './detail.module.css';
+import styles from '../css/detail.module.css';
 import axios from 'axios';
 
 export default function Detail(){

@@ -2,7 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
-import styles from "./home.module.css";
+import styles from "../css/home.module.css";
 // import Navbar from '../NavBar/Navbar';
 import axios from 'axios';
 

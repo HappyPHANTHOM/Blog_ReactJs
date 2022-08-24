@@ -1,7 +1,7 @@
 import React from "react";
 import {useParams, Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import styles from './detail.module.css';
+import styles from '../css/detail.module.css';
 import axios from "axios";
 
 export default function SliderBlog(){
